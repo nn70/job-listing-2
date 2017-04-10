@@ -2,7 +2,10 @@
 
 <%= simple_form_for [:admin,@job] do |f| %>
 
-<%= f.input :title %>
-<%= f.input :description %>
+<%= f.input :title, :label => "職缺名稱"  %>
+<%= f.input :description, :label => "職位說明"  %>
+<%= f.input :wage_lower_bound, :label => "薪資下限" %>
+<%= f.input :wage_upper_bound, :label => "薪資上限" %>
+<%= f.input :contact_email, :label => "E-mail"  %>
   <%= f.submit "確定" %>
   <% end %>
