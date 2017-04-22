@@ -6,6 +6,13 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <div class="form-group form-inline search-bar">
+            <%= render :partial => "jobs/search_bar" %>
+          </div>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if !current_user %>

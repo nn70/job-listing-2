@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :jobs do
+    collection do
+      get :search
+    end
     resources :resumes
   end
 
@@ -12,7 +15,6 @@ Rails.application.routes.draw do
         post :publish
         post :hide
       end
-
       resources :resumes
     end
   end
