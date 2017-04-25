@@ -1,18 +1,17 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"><img src='<%= image_url 'https://crowdworks.jp/attachments/774871.jpg' %>' >职来职网</a>
+    <a class="navbar-brand" href="/"><img src='<%= image_url 'https://ww4.sinaimg.cn/large/006tNc79gy1fez0ncec9dj305k05k748.jpg' %>' >樱桃娱乐网</a>
       <!-- https://crowdworks.jp/public/jobs/51885 icon图来源-->
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-          <div class="form-group form-inline search-bar">
-            <%= render :partial => "jobs/search_bar" %>
-          </div>
-        </li>
-      </ul>
+      <!--=== 网站连结 ===-->
+     <ul class="nav navbar-nav navbar-left">
+       <li><%= link_to("首页", root_path, class: "scroll") %></li>
+       <li><%= link_to("工作", jobs_path, class: "scroll") %></li>
+     </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if !current_user %>
@@ -21,7 +20,7 @@
           <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              你好, <%= current_user.email %>
+              你好, <%= current_user.name %>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
@@ -32,6 +31,13 @@
             </ul>
           </li>
           <% end %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <div class="form-group form-inline search-bar">
+            <%= render :partial => "jobs/search_bar" %>
+          </div>
         </li>
       </ul>
     </div>
