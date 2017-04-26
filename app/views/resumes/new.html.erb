@@ -3,7 +3,7 @@
 <hr>
 
 <%= simple_form_for [@job, @resume] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :attachment %>
+  <%= f.input :content, :label => "简单自介" %>
+  <%= f.input :attachment, :label => "上传照片" %>
   <%= f.submit "送出" %>
 <% end %>
