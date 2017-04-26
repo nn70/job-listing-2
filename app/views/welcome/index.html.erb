@@ -1,3 +1,7 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="row">
 <div class="box col-md-12">
      <div class="box-inner col-md-6 col-md-offset-3">
@@ -9,18 +13,19 @@
    </div>
  </div>
 </div>
- <div class="lp-section-2 clearfix">
+
+ <!-- <div class="lp-section-2 clearfix">
   <div class="content-2">
     <div class="short-line"></div>
     <h2>我们为您提供专业、便捷、安心的标准化保姆服务</h2>
     <p>
-      我们提供包括育儿、宠物美容、住家保姆等到家服务，给您的婴孩及宠物不一样的尊荣体验，找保姆服务就上宠婴网
+      超凡卓越的專業團隊，匯集創意、經紀、影音製作、公關人才，一氣呵成的完善服務平台
     </p>
     <img src="https://ww4.sinaimg.cn/large/006tNc79gy1few1jckixkj31hc0u0q6c.jpg">
   </div>
-</div>
+</div> -->
 
-<div class="lp-section-3 clearfix">
+<!-- <div class="lp-section-3 clearfix">
   <div class="content-3">
     <div class="feature-title">
       <div class="short-line"></div>
@@ -45,60 +50,98 @@
       <p>Hackathon 冠军 Xdite 与你分享十年敏捷开发、团队合作、项目管理经验，让你体验持续高速成长的乐趣。</p>
     </div>
   </div>
+</div> -->
+
+<div class="content-section-a">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">良好的外表是与生俱来的天赋</h2>
+        <p class="lead">只要你符合条件及怀有梦想，欢迎挑战有趣的模特工作。不限年龄不限国籍，就等你来挑战！</p>
+      </div>
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+        <%= image_tag 'https://images.pexels.com/photos/383603/pexels-photo-383603.jpeg?h=350&auto=compress&cs=tinysrgb', class: 'img-responsive' %>
+      </div>
+    </div>
+  </div>
 </div>
 
- <div class="content-section-a">
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-5 col-sm-6">
-         <hr class="section-heading-spacer">
-         <div class="clearfix"></div>
-         <h2 class="section-heading">找工作一定要带手机</h2>
-         <p class="lead">因为没带手机就不能联络公司</p>
-       </div>
-       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-         <%= image_tag 'pic-1.jpg', class: 'img-responsive' %>
-       </div>
-     </div>
+<div class="content-section-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">全国最强的模特线上培训</h2>
+        <p class="lead">写下你所在的城市，并留下照片，我们会指引你到最近的培训所接受专门的摄影，将你最好的一面呈现出来。</p>
+      </div>
+      <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+        <%= image_tag 'https://images.pexels.com/photos/247295/pexels-photo-247295.jpeg?h=350&auto=compress&cs=tinysrgb', class: 'img-responsive' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<center><h2>听听这些模特怎么说？</h2></center>
+<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <span class="feature-block"><img src="https://ww4.sinaimg.cn/large/006tNc79gy1fez5rpf3sjj304305jt8s.jpg"></span>
+    <h4>"我本来是学校老师，现在专门为杂志拍摄封面及一些宣传照。"<br><span style="font-style:normal;">赵伊灵，四川</span></h4>
+    </div>
+    <div class="item">
+      <span class="feature-block"><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fez5o7e7zuj304205kjrd.jpg"></span>
+      <h4>"映画に出ることはまだ信じられなかった、夢を叶えだ感じて、とてもありがたい"<br><span style="font-style:normal;">三上優亜、演員</span></h4>
+    </div>
+    <div class="item">
+      <span class="feature-block"><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fez5swk77oj303u05j3yk.jpg"></span>
+      <h4>"在樱桃网成功的换到了大型的事务所，今年要到美国替维密走秀了！"<br><span style="font-style:normal;">许纯美，台湾</span></h4>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!-- action trigger -->
+<div class="lp-section-bottom clearfix">
+ <div class="bottom-content">
+   <p>
+   </p>
+   <div>
+     <a class="btn btn-primary-welcome" href="/jobs">立即应征</a>
    </div>
  </div>
+</div>
 
- <div class="content-section-b">
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-         <hr class="section-heading-spacer">
-         <div class="clearfix"></div>
-         <h2 class="section-heading">一定要把履历写好在投</h2>
-         <p class="lead">履历如果不会写就一定要多上网寻求帮助，例如  <a target="_blank" href="http://blog.niclin.tw">Nic 的 Blog</a>! 啦啦啦啦啦啦啦</p>
-       </div>
-       <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-         <%= image_tag 'pic-2.jpg', class: 'img-responsive' %>
-       </div>
-     </div>
-   </div>
- </div>
-
+<!-- related companies -->
  <div class="lp-section-4 lp-section-5">
    <div class="content-4 content-5">
-     <p class="des">我们的往期学员被以下公司录取了</p>
+     <p class="des">录取以下模特公司不再是梦想</p>
      <div class="list">
-       <img src="https://fullstack.xinshengdaxue.com/images/jinshuju.png">
-       <img src="https://fullstack.xinshengdaxue.com/images/strikingly.png">
-       <img src="https://fullstack.xinshengdaxue.com/images/caicheng.png">
-       <img src="https://fullstack.xinshengdaxue.com/images/yunbi.png">
-       <img src="https://fullstack.xinshengdaxue.com/images/meow.png">
+       <img src="https://ww4.sinaimg.cn/large/006tNc79gy1fez3t1rr06j306s02bweh.jpg">
+       <img src="https://ww2.sinaimg.cn/large/006tNc79gy1fez3vnmf9jj305o02bmx5.jpg">
+       <img src="https://ww2.sinaimg.cn/large/006tNc79gy1fez3wjzfyoj305h02gjrb.jpg">
+       <img src="https://ww1.sinaimg.cn/large/006tNc79gy1fez3z8dtdsj305501p746.jpg">
+       <img src="https://ww3.sinaimg.cn/large/006tNc79gy1fez40u7b0tj305s037wek.jpg">
      </div>
      <p class="des more">更多精彩，由你创造……</p>
    </div>
  </div>
-
- <div class="lp-section-bottom clearfix">
-  <div class="bottom-content">
-    <p>
-    </p>
-    <div>
-      <a class="btn btn-primary-welcome" href="/jobs">开始应征</a>
-    </div>
-  </div>
-</div>

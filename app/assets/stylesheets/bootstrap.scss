@@ -1226,7 +1226,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 195px;
+  margin-top: 21px;
   margin-bottom: 10.5px;
 }
 h1 small,
@@ -4285,7 +4285,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  padding: 5px 15px;
+  padding: 0px 15px;
   font-size: 19px;
   line-height: 21px;
   height: 60px;
@@ -4295,7 +4295,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
 }
 .navbar-brand > img {
-  display: block;
+  display: inline-block; //图片和链接文字显示在同一行
+  margin-top: -10px; //
+  width: 50px; //定制图片宽度
+  height: 50px; //定制图片高度
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,

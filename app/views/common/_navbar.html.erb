@@ -1,14 +1,13 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-    <a class="navbar-brand" href="/"><img src='<%= image_url 'https://ww4.sinaimg.cn/large/006tNc79gy1fez0ncec9dj305k05k748.jpg' %>' >樱桃娱乐网</a>
-      <!-- https://crowdworks.jp/public/jobs/51885 icon图来源-->
+    <a class="navbar-brand" href="/"><img src='<%= image_url 'https://ww4.sinaimg.cn/large/006tNc79gy1fez0ncec9dj305k05k748.jpg' %>' ></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <!--=== 网站连结 ===-->
      <ul class="nav navbar-nav navbar-left">
-       <li><%= link_to("首页", root_path, class: "scroll") %></li>
+       <li><%= link_to("樱桃娱乐网", root_path, class: "scroll") %></li>
        <li><%= link_to("工作", jobs_path, class: "scroll") %></li>
      </ul>
 
@@ -70,9 +69,11 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true %>
+          <%= f.input :name, required: false, input_html:{value: "美女／帅哥"}, :label => "姓名" %>
+          <%= f.input :is_admin, as: :radio_buttons, collection:  [['求职者', false], ['雇主', true]], required: true , :label => "您是？"%>
+          <%= f.input :email, required: true, autofocus: true, :label => "邮箱(登入用)"  %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), :label => "密码"  %>
+          <%= f.input :password_confirmation, required: true, :label => "确认密码"  %>
         </div>
         <div class="form-actions">
             <%= f.button :submit, "Sign up" %>
