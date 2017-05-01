@@ -5,6 +5,7 @@ class Admin::JobsController < ApplicationController
 
     def show
       @job = Job.find(params[:id])
+
     end
 
     def edit
@@ -12,7 +13,8 @@ class Admin::JobsController < ApplicationController
     end
 
     def index
-      @jobs = Job.all
+      # @jobs = Job.all
+      @jobs = Job.recent.paginate(:page => params[:page], :per_page => 10)
     end
 
     def new
@@ -53,6 +55,13 @@ class Admin::JobsController < ApplicationController
       @job = Job.find(params[:id])
       @job.hide!
       redirect_to :back
+    end
+
+    def search
+      if @query_string.present?
+        search_result = Job.published.ransack(@search_criteria).result(:distinct => true)
+        @jobs = search_result.recent.paginate(:page => params[:page], :per_page => 5 )
+      end
     end
 
   private

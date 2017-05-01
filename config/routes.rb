@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
 
   root 'welcome#index'
+  get 'about' => 'jobs#about'
+
+
   namespace :admin do
+
     resources :jobs do
       member do
         post :publish
@@ -17,5 +21,7 @@ Rails.application.routes.draw do
       end
       resources :resumes
     end
+
   end
+
 end
