@@ -7,5 +7,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-  
+
+  def index
+    @suggests = Job.published.random5
+  end  
 end

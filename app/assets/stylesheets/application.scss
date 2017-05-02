@@ -270,20 +270,16 @@
 
  footer {
      color: white;
+     bottom: 0;
+     right: 0;
+     width: 100%;
  }
 
  footer .footer-below {
+
      padding: 25px 0;
      background-color: #233140;
  }
-
- .id_footer {
- position: absolute;
- right: 0;
- bottom: 0;
- left: 0;
- padding: 1rem;
-}
 
 
 // search bar

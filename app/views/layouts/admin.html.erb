@@ -24,14 +24,28 @@
         <%= yield %>
       </div>
 
-      <div class="col-md-2 md-offset-1">
-        Hi
+      <div class="md-offset-1 col-md-2">
+        <div class="bg-color5">
+          <h2><span class="fa fa-tags"></span> <span>职位推荐</span></h2>
+            <% @suggests.each do |job| %>
+                    <div>
+                      <h3>
+                        <%= link_to job_path(job), target: "_blank" do %>
+                          <%= job.title %> [<%= job.city %>]
+                        <% end %>
+                      </h3>
+                    </div>
+                    <div><p><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></p></div>
+                    <div><span><%= job.company %></span></div>
+                    <hr>
+            <% end %>
+        </div>
       </div>
 
     </div>
-
-    <%= render "common/footer" %>
-
+    <div class="row">
+      <%= render "common/footer" %>
+    </div>
   </div>
 </body>
 </html>

@@ -10,11 +10,14 @@ class Admin::JobsController < ApplicationController
 
     def edit
       @job = Job.find(params[:id])
+      @suggests = Job.published.random5
     end
 
     def index
       # @jobs = Job.all
       @jobs = Job.recent.paginate(:page => params[:page], :per_page => 10)
+      # 随机推荐五个职位 #
+      @suggests = Job.published.random5
     end
 
     def new
@@ -62,6 +65,8 @@ class Admin::JobsController < ApplicationController
         search_result = Job.published.ransack(@search_criteria).result(:distinct => true)
         @jobs = search_result.recent.paginate(:page => params[:page], :per_page => 5 )
       end
+
+      @suggests = Job.published.random5
     end
 
   private

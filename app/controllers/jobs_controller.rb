@@ -24,6 +24,7 @@ before_action :validate_search_key, only: [:search]
             else
               Job.published.recent
             end
+          
   end
 
 
