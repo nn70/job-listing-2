@@ -16,15 +16,17 @@ before_action :validate_search_key, only: [:search]
   end
 
   def index
+    # 随机推荐五个职位 #
+    @suggests = Job.published.random5
     @jobs = case params[:order]
             when 'by_lower_bound'
-              Job.published.order('wage_lower_bound DESC')
+              Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 10)
             when 'by_upper_bound'
-              Job.published.order('wage_upper_bound DESC')
+              Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 10)
             else
-              Job.published.recent
+              Job.published.recent.paginate(:page => params[:page], :per_page => 10)
             end
-          
+
   end
 
 
@@ -61,6 +63,9 @@ before_action :validate_search_key, only: [:search]
       search_result = Job.published.ransack(@search_criteria).result(:distinct => true)
       @jobs = search_result.recent.paginate(:page => params[:page], :per_page => 5 )
     end
+  end
+
+  def about
   end
 
 private

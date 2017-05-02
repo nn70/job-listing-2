@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-9">
     <table class="table table-boldered">
         <thead>
@@ -38,9 +38,91 @@
         </tbody>
 
     </table>
-  </div>
+  </div> -->
 
-  <div class="col-md-3">
-    推薦工作
+  <div class="row">
+    <div class="col-md-offset-2 col-md-7">
+
+      <div class="job-page">
+        <div class="dropdown clearfix pull-right">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              排序<span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                <li>
+                  <%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %>
+                </li>
+                <li>
+                    <%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %>
+                </li>
+                <li>
+                  <%= link_to("按照发表时间排序", jobs_path ) %>
+                </li>
+            </ul>
+        </div>
+        
+        <h2>招聘职位  ( 共 <%= @jobs.count %> 个 )</h2>
+        <% @jobs.each do |job| %>
+        <div class="job-info">
+        <!-- 职位列表 -->
+          <div>
+            <h3><%= render_job_status(job) %>
+            <%= link_to(job.title, admin_job_resumes_path(job)) %></h3>
+            <p class="clearfix">
+                <span class="text-warning"><i class="fa fa-cny"> </i><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></span>
+                <span><i class="fa fa-paperclip"> </i> 已收到<%= job.resumes.count %> 份照片</span>
+            </p>
+            <p class="clearfix">
+                <span><i class="fa fa-rocket"> </i><%= job.city%> </span>
+                <span><i class="fa fa-address-card"> </i><%= job.company%></span>
+            </p>
+            <p class="clearfix">
+                <time> <%= job.created_at.strftime("%Y/%m/%d") %> </time>
+                <span>投递后：10天以内反馈</span>
+            </p>
+          </div>
+
+          <div>
+              <%= link_to("立即应聘", job_path(job), :class => "btn btn-large btn-primary") %>
+              <%= link_to("編輯", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
+              <%= link_to("刪除", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+              <% if job.is_hidden %>
+              <%= link_to("公開", publish_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-success") %>
+              <% else %>
+              <%= link_to("隱藏", hide_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-warning") %>
+              <% end %>
+          </div>
+
+        </div>
+
+        <div class="job-pix">
+          <%= image_tag 'https://images.pexels.com/photos/383603/pexels-photo-383603.jpeg?h=350&auto=compress&cs=tinysrgb', class: 'img-responsive' %>
+        </div>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-2">
+      <div class="bg-color3">
+        <h2><span class="fa fa-tags"></span> <span>职位推荐</span></h2>
+          <% @suggests.each do |job| %>
+                  <div>
+                    <h3>
+                      <%= link_to job_path(job), target: "_blank" do %>
+                        <%= job.title %> [<%= job.city %>]
+                      <% end %>
+                    </h3>
+                  </div>
+                  <div><p><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></p></div>
+                  <div><span><%= job.company %></span></div>
+                  <hr>
+          <% end %>
+      </div>
+    </div>
+
   </div>
-</div>
