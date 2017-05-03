@@ -16,7 +16,8 @@
 
       <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <li class="active text-center"><%= link_to("管理員介面", admin_jobs_path) %></li>
+          <li class="active text-center"><%= link_to("Admin Panel", admin_jobs_path) %></li>
+          <li class="active text-center"><%= link_to("Add a new job", new_admin_job_path) %></li>
         </ul>
       </div>
 
@@ -26,7 +27,7 @@
 
       <div class="md-offset-1 col-md-2">
         <div class="bg-color5">
-          <h2><span class="fa fa-tags"></span> <span>职位推荐</span></h2>
+          <h2><span class="fa fa-tags"></span> <span>Suggestions</span></h2>
             <% @suggests.each do |job| %>
                     <div>
                       <h3>

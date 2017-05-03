@@ -1,13 +1,14 @@
-<h1> 新增職缺 </h1>
+<h1> Add a new job </h1>
 
 <%= simple_form_for [:admin,@job] do |f| %>
 
-<%= f.input :title, :label => "職缺名稱"  %>
-<%= f.input :city, :label => "地点"  %>
-<%= f.input :description, :label => "職位說明"  %>
-<%= f.input :wage_lower_bound, :label => "薪資下限" %>
-<%= f.input :wage_upper_bound, :label => "薪資上限" %>
+<%= f.input :title, :label => "job title"  %>
+<%= f.input :company, :label => "company"  %>
+<%= f.input :city, :label => "location"  %>
+<%= f.input :description, :label => "job description"  %>
+<%= f.input :wage_lower_bound, :label => "wage lower bound" %>
+<%= f.input :wage_upper_bound, :label => "wage upper bound" %>
 <%= f.input :contact_email, :label => "E-mail"  %>
 <%= f.input :is_hidden %>
-  <%= f.submit "確定" %>
+  <%= f.submit "Submit" %>
   <% end %>

@@ -23,6 +23,8 @@ before_action :validate_search_key, only: [:search]
               Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 10)
             when 'by_upper_bound'
               Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 10)
+            when 'by_city'
+              Job.published.order('city DESC').paginate(:page => params[:page], :per_page => 10)
             else
               Job.published.recent.paginate(:page => params[:page], :per_page => 10)
             end

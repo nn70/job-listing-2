@@ -1,13 +1,13 @@
 <div class="text-center">
   <p>
-  <%= link_to("提供照片", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;") %>
+  <%= link_to("Apply Now", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;") %>
   </p>
 
 
 <% if current_user && current_user.favorite?(@job) %>
-<%= link_to discollect_job_path(@job), method: :post do %><i class="fa fa-envelope-open-o fa-2x" aria-hidden="true">取消收藏</i><% end %>
+<%= link_to discollect_job_path(@job), method: :post do %><i class="fa fa-envelope-open-o fa-2x" aria-hidden="true">Saved</i><% end %>
 <% else %>
-<%= link_to collect_job_path(@job), method: :post do %><i class="fa fa-envelope-o fa-2x" aria-hidden="true">收藏职缺</i><% end %>
+<%= link_to collect_job_path(@job), method: :post do %><i class="fa fa-envelope-o fa-2x" aria-hidden="true">Save it</i><% end %>
 <% end %>
 
   <!-- 职位列表 -->
@@ -17,7 +17,7 @@
       <%= @job.title %></h1>
       <p class="clearfix">
           <span class="text-warning"><i class="fa fa-cny"> </i><%= @job.wage_lower_bound %> ~ <%= @job.wage_upper_bound %></span>
-          <span><i class="fa fa-paperclip"> </i> 已收到<%= @job.resumes.count %> 份照片</span>
+          <span><i class="fa fa-paperclip"> </i> <%= @job.resumes.count %> resume(s) received</span>
       </p>
       <p class="clearfix">
           <span><i class="fa fa-rocket"> </i><%= @job.city%> </span>
@@ -25,7 +25,7 @@
       </p>
       <p class="clearfix">
           <time> <%= @job.created_at.strftime("%Y/%m/%d") %> </time>
-          <span>投递后：10天以内反馈</span>
+          <span>reply in 10 days</span>
       </p>
       <p class="clearfix">
       <%= simple_format(@job.description) %>

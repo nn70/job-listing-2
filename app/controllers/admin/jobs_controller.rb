@@ -22,6 +22,8 @@ class Admin::JobsController < ApplicationController
 
     def new
       @job = Job.new
+      # 随机推荐五个职位 #
+      @suggests = Job.published.random5
     end
 
     def create

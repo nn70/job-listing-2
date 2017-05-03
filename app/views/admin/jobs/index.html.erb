@@ -1,7 +1,7 @@
 
 <!-- <div class="row"> -->
   <div class="job-page">
-    <h2>招聘职位  ( 共 <%= @jobs.count %> 个 )</h2>
+    <h2>Total <%= @jobs.count %> jobs </h2>
     <% @jobs.each do |job| %>
     <div class="job-info">
     <!-- 职位列表 -->
@@ -10,7 +10,7 @@
         <%= link_to(job.title, admin_job_resumes_path(job)) %></h3>
   			<p class="clearfix">
     				<span class="text-warning"><i class="fa fa-cny"> </i><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></span>
-    				<span><i class="fa fa-paperclip"> </i> 已收到<%= job.resumes.count %> 份照片</span>
+    				<span><i class="fa fa-paperclip"> </i> <%= job.resumes.count %> resume(s) received</span>
         </p>
         <p class="clearfix">
     				<span><i class="fa fa-rocket"> </i><%= job.city%> </span>
@@ -18,18 +18,18 @@
   			</p>
   			<p class="clearfix">
     				<time> <%= job.created_at.strftime("%Y/%m/%d") %> </time>
-    				<span>投递后：10天以内反馈</span>
+    				<span>Reply in 10 days</span>
   			</p>
   		</div>
 
   		<div>
-    			<%= link_to("立即应聘", job_path(job), :class => "btn btn-large btn-primary") %>
-          <%= link_to("編輯", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
-          <%= link_to("刪除", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+    			<%= link_to("apply now", job_path(job), :class => "btn btn-large btn-primary") %>
+          <%= link_to("edit", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
+          <%= link_to("delete", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
           <% if job.is_hidden %>
-          <%= link_to("公開", publish_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-success") %>
+          <%= link_to("Public", publish_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-success") %>
           <% else %>
-          <%= link_to("隱藏", hide_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-warning") %>
+          <%= link_to("Hideden", hide_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-warning") %>
           <% end %>
       </div>
 
