@@ -1,10 +1,36 @@
 <div class="text-center">
+  <p>
   <%= link_to("提供照片", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;") %>
-</div>
+  </p>
 
-<h1> <%= @job.title %> </h1>
-  <div class="description bg-color4">
-    <div class="descriptionContent">
+
+<% if current_user && current_user.favorite?(@job) %>
+<%= link_to discollect_job_path(@job), method: :post do %><i class="fa fa-envelope-open-o fa-2x" aria-hidden="true">取消收藏</i><% end %>
+<% else %>
+<%= link_to collect_job_path(@job), method: :post do %><i class="fa fa-envelope-o fa-2x" aria-hidden="true">收藏职缺</i><% end %>
+<% end %>
+
+  <!-- 职位列表 -->
+    <div class="row text-center">
+      <div class="col-md-offset-2 col-md-8">
+      <h1>
+      <%= @job.title %></h1>
+      <p class="clearfix">
+          <span class="text-warning"><i class="fa fa-cny"> </i><%= @job.wage_lower_bound %> ~ <%= @job.wage_upper_bound %></span>
+          <span><i class="fa fa-paperclip"> </i> 已收到<%= @job.resumes.count %> 份照片</span>
+      </p>
+      <p class="clearfix">
+          <span><i class="fa fa-rocket"> </i><%= @job.city%> </span>
+          <span><i class="fa fa-address-card"> </i><%= @job.company%></span>
+      </p>
+      <p class="clearfix">
+          <time> <%= @job.created_at.strftime("%Y/%m/%d") %> </time>
+          <span>投递后：10天以内反馈</span>
+      </p>
+      <p class="clearfix">
       <%= simple_format(@job.description) %>
+      </p>
     </div>
   </div>
+·
+</div>

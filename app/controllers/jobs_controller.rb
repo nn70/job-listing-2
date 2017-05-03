@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :collect, :discollect]
 before_action :validate_search_key, only: [:search]
 
   def show
@@ -66,6 +66,28 @@ before_action :validate_search_key, only: [:search]
   end
 
   def about
+  end
+
+  def collect
+    @job = Job.find(params[:id])
+    if !current_user.favorite?(@job)
+      current_user.collect!(@job)
+      flash[:notice] = "Collect Job Success!"
+    else
+      flash[:warning] = "Have Collected"
+    end
+    redirect_to :back
+  end
+
+  def discollect
+    @job = Job.find(params[:id])
+    if current_user.favorite?(@job)
+      current_user.discollect!(@job)
+      flash[:alert] = "Collection is canceled"
+    else
+      flash[:alert] = "NO collection"
+    end
+    redirect_to :back
   end
 
 private

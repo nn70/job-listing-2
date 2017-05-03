@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job listing</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <%= render "common/navbar" %>
+    <%= render "common/flashes" %>
+    <div class="row">
+
+      <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+          <li class="active text-center"><%= link_to("管理員介面", admin_jobs_path) %></li>
+        </ul>
+      </div>
+
+      <div class="col-md-offset-1 col-md-6">
+        <%= yield %>
+      </div>
+
+      <div class="md-offset-1 col-md-2">
+        <div class="bg-color5">
+          <h2><span class="fa fa-tags"></span> <span>职位推荐</span></h2>
+            <% @suggests.each do |job| %>
+                    <div>
+                      <h3>
+                        <%= link_to job_path(job), target: "_blank" do %>
+                          <%= job.title %> [<%= job.city %>]
+                        <% end %>
+                      </h3>
+                    </div>
+                    <div><p><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></p></div>
+                    <div><span><%= job.company %></span></div>
+                    <hr>
+            <% end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <%= render "common/footer" %>
+    </div>
+  </div>
+</body>
+</html>
