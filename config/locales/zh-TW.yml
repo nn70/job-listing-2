@@ -1,0 +1,4 @@
+  zh-TW:
+    hello: "嗨嗨，向世界說聲嗨！"
+    # <%= t :hello %>
+    nav-title: "櫻桃娛樂網"

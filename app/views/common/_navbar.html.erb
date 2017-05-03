@@ -14,6 +14,31 @@
      </ul>
 
       <ul class="nav navbar-nav navbar-right">
+
+        <!-- 搜索欄 -->
+        <li>
+          <div class="form-group form-inline search-bar">
+            <%= render :partial => "jobs/search_bar" %>
+          </div>
+        </li>
+
+        <!-- 語系下拉式選單 -->
+        <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <%= t('切換語系') %><span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+
+
+            <li><%= link_to "簡中版", :controller => controller_name, :action => action_name, :locale => "zh-CN" %></li>
+
+            <li><%= link_to "繁中版", :controller => controller_name, :action => action_name, :locale => "zh-TW" %></li>
+
+            <li><%= link_to "English", :controller => controller_name, :action => action_name, :locale => "en" %></li>
+          </ul>
+        </li> -->
+
+        <!-- 使用者選單 -->
         <li>
           <% if !current_user %>
             <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
@@ -36,13 +61,7 @@
           </li>
           <% end %>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <div class="form-group form-inline search-bar">
-            <%= render :partial => "jobs/search_bar" %>
-          </div>
-        </li>
+
       </ul>
     </div>
   </div>
