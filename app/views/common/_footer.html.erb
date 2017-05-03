@@ -1,11 +1,30 @@
 <footer class="text-center">
-   <div class="footer-below">
-       <p class="text-center">
-         <%= link_to "https://fullstack.xinshengdaxue.com/works/445", target: :_blank do %>
-         Copyright ©2017 樱桃娱乐网
-         <br/><%= link_to 'About', about_path %>
-         <% end %>
-         <br>
-       </p>
+   <div class="container-fluid">
+       <div class="row footer-below">
+           <div class="col-md-offset-1 col-md-11">
+             <div class="col-md-6">
+               <div class="col-md-4"><%= link_to '关于我们', about_path %><br>常见问题<br>联系方式 </div>
+               <div class="col-md-4">求职专区<br>海外工作<br>兼职外包</div>
+               <div class="col-md-4">线下培训<br>联合招聘<br>加值服务</div>
+             </div>
+             <div class="col-md-4 col-md-offset-2 text-left">
+               <span class="fa fa-slack"> Slack ID: tim--2 </span><br/>
+               <span class="fa fa-wechat"> Wechat ID: yitihua1320 </span><br/>
+               <span class="fa fa-gbp"> : http://nn70-blog.logdown.com/</span>
+             </div>
+
+
+           <hr>
+           </div>
+           <p class="text-center">
+             <%= link_to "https://fullstack.xinshengdaxue.com/works/445", target: :_blank do %>
+             Copyright ©2017 樱桃娱乐网<br/>
+             <% end %>
+             Designed by Tim
+           </p>
+
+
+       </div>
    </div>
+
 </footer>

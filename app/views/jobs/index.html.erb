@@ -60,7 +60,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <h2>招聘职位  ( 共 <%= @jobs.count %> 个 )</h2>
         <% @jobs.each do |job| %>
         <div class="job-info">
@@ -99,6 +99,7 @@
           <%= image_tag 'https://images.pexels.com/photos/383603/pexels-photo-383603.jpeg?h=350&auto=compress&cs=tinysrgb', class: 'img-responsive' %>
         </div>
         <% end %>
+        
       </div>
       <div class="text-center">
         <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
@@ -108,7 +109,7 @@
 
 
     <div class="col-md-2">
-      <div class="bg-color3">
+      <div class="bg-color6">
         <h2><span class="fa fa-tags"></span> <span>职位推荐</span></h2>
           <% @suggests.each do |job| %>
                   <div>
