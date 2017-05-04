@@ -35,16 +35,16 @@
             <h3><%= render_job_status(job) %>
             <%= link_to(job.title, job_path(job)) %></h3>
             <p class="clearfix">
-                <span class="text-warning"><i class="fa fa-cny"> </i><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></span>
-                <span><i class="fa fa-paperclip"> </i> <%= job.resumes.count %> Resume(s) received</span>
+                <span class="text-warning"><i class="fa fa-dollar"> </i><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></span>
+
             </p>
             <p class="clearfix">
-                <span><i class="fa fa-rocket"> </i><%= job.city%> </span>
-                <span><i class="fa fa-address-card"> </i><%= job.company%></span>
+                <span><i class="fa fa-map-marker fa-1x"> </i> <%= job.city%> </span> |
+                <span><i class="fa fa-h-square fa-1x"> </i> <%= job.company%></span>
             </p>
             <p class="clearfix">
+                <span><i class="fa fa-paperclip"> </i> <%= job.resumes.count %> Resume(s) received</span><br>
                 <time> <%= job.created_at.strftime("%Y/%m/%d") %> </time>
-                <span>Reply in 10 dyas</span>
             </p>
           </div>
 
@@ -61,7 +61,11 @@
         </div>
 
         <div class="job-pix text-left">
-          <i class="fa fa-thumbs-o-up fa-5x"> </i>
+          <% if current_user && current_user.favorite?(job) %>
+          <%= link_to discollect_job_path(job), method: :post do %><i class="fa fa-thumbs-up fa-5x" aria-hidden="true"> </i><% end %>
+          <% else %>
+          <%= link_to collect_job_path(job), method: :post do %><i class="fa fa-thumbs-o-up fa-5x"aria-hidden="true"> </i><% end %>
+          <% end %>
         </div>
         <% end %>
 
@@ -84,7 +88,7 @@
                       <% end %>
                     </h3>
                   </div>
-                  <div><p><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></p></div>
+                  <div><p>$<%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></p></div>
                   <div><span><%= job.company %></span></div>
                   <hr>
           <% end %>
